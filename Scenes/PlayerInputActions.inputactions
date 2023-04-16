@@ -16,12 +16,12 @@
                 },
                 {
                     "name": "AbilityX",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "58946308-81de-435e-b3c6-f6e3b698e232",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Move",
@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "ShiftZ",
+                    "type": "Button",
+                    "id": "3bd1f313-cd4d-4fa5-b7aa-9e37171bd914",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -110,6 +119,67 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "ShiftZ",
+                    "id": "dc7fa8ea-489b-49ad-803b-21650da041d3",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShiftZ",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "0f1ecca4-b155-4d8b-b2f4-ef7043cd7116",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShiftZ",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "2c5bfb7c-0115-4527-a60f-fac559a8f22d",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShiftZ",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Menu",
+            "id": "73d61090-2fec-4783-98d1-b23194db0c89",
+            "actions": [
+                {
+                    "name": "AbilityX",
+                    "type": "Button",
+                    "id": "11aab559-bb34-458b-b87a-ba38b1e0f340",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c858760f-cf22-4e16-827e-e79dbc340779",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AbilityX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

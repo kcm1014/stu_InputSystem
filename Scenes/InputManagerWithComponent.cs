@@ -14,18 +14,35 @@ public class InputManagerWithComponent : MonoBehaviour
         _input.actions["AbilityZ"].performed += OnAbilityZ;
         _input.actions["AbilityZ"].canceled += OnAbilityZ;
 
-        _input.actions["AbilityX"].performed += OnAbilityX;
-        _input.actions["AbilityX"].canceled += OnAbilityX;
+        _input.actions["ShiftZ"].performed += OnShiftZ;
+        _input.actions["ShiftZ"].canceled += OnShiftZ;
+
+        _input.actions.FindActionMap("Player")["AbilityX"].performed += OnAbilityX;
+
+        _input.actions.FindActionMap("Menu")["AbilityX"].performed += OnAbilityXMenu;
 
         _input.actions["Move"].performed += OnMove;
         _input.actions["Move"].canceled += OnMove;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnShiftZ(InputAction.CallbackContext context)
     {
-        
+        Debug.Log("Shift Z Action: " + context.phase);
     }
+
+    private void OnAbilityXMenu(InputAction.CallbackContext obj)
+    {
+        GetComponent<CubeController>().ChangeCubeColor();
+        _input.SwitchCurrentActionMap("Player");
+    }
+
+    private void OnGUI() {
+        GUIStyle style = new GUIStyle();
+        style.fontSize = 50;
+        string labelTest = _input.currentActionMap.name;
+        GUI.Label(new Rect(50,50,200,500),labelTest,style);
+    }
+    
     /*
     Behavior : Send Message 형태
     public void OnAbilityX(InputValue value){
@@ -59,13 +76,13 @@ public class InputManagerWithComponent : MonoBehaviour
     }
 
     public void OnAbilityX(InputAction.CallbackContext context){
-        Debug.Log("Ability X!");
+        Debug.Log("Ability X from Player action map!");
         Debug.Log(context.ReadValueAsButton());
 
         if(context.performed)
             GetComponent<CubeController>().ChangeCubeColor(Color.red);
-        else
-             GetComponent<CubeController>().ChangeCubeColor();
+       
+        _input.SwitchCurrentActionMap("Menu");
     }
 
     public void OnMove(InputAction.CallbackContext context){
